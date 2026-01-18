@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:16.2
+    container_name: roky_postgres
+    environment:
+      - POSTGRES_USER=sa
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=roky-db
+    ports:
+      - '5433:5432'
+
+  server:
+    container_name: roky-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8081:8080'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/roky-db
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=password
+    depends_on:
+      - postgres
