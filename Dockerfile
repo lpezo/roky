@@ -1,17 +1,26 @@
-# Use an official Maven image as the base image
-FROM maven:3.8.4-openjdk-17-slim AS build
+#Stage 1: Download dependencies
+FROM eclipse-temurin:21-jdk-alpine AS dependecies
+
+RUN apk add --no-cache maven
+
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /build
 # Copy the pom.xml and the project files to the container
 COPY pom.xml .
+
+RUN mvn dependency:go-offline
+
+# Stage 2: Build the application
+FROM dependecies AS builder
 COPY src ./src
-# Build the application using Maven
 RUN mvn clean package -DskipTests
-# Use an official OpenJDK image as the base image
-FROM openjdk:17-jre-slim
-# Set the working directory in the container
+
+#Stage 3: Run the application
+FROM eclipse-temurin:21-jre-alpine AS runtime
+
 WORKDIR /app
-# Copy the built JAR file from the previous stage to the container
-COPY - from=build /app/target/roky-0.0.1-SNAPSHOT.jar roky.jar
-# Set the command to run the application
-CMD ["java", "-jar", "-Dspring.profiles.active=prod", "roky.jar"]
+
+COPY --from=builder /build/target/protect-0.0.1-SNAPSHOT.jar app.jar
+
+# java -jar app.jar
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "app.jar"]

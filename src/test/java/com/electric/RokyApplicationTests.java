@@ -1,4 +1,4 @@
-package com.resta.roky;
+package com.electric;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

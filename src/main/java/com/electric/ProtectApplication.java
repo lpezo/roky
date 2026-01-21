@@ -1,13 +1,13 @@
-package com.resta.roky;
+package com.electric;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RokyApplication {
+public class ProtectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RokyApplication.class, args);
+		SpringApplication.run(ProtectApplication.class, args);
 	}
 
 }

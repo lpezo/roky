@@ -8,9 +8,29 @@ services:
       - POSTGRES_DB=roky-db
     ports:
       - '5433:5432'
+    restart: unless-stopped
+    volumes:
+     - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: lpezo777@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin1234
+      PGADMIN_CONFIG_SERVER_MODE: "True"
+      PGADMIN_LISTEN_PORT: 8090
+    expose:
+      - 8090
+    depends_on:
+      - postgres
+    volumes:
+      - data-pgadmin:/var/lib/pgadmin
 
   server:
-    container_name: roky-server
+    container_name: electric-server
     build:
       context: .
       dockerfile: Dockerfile
@@ -22,3 +42,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=password
     depends_on:
       - postgres
+
+volumes:
+  postgres_data:
+  data-pgadmin:
