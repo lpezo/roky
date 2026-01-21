@@ -57,27 +57,29 @@
     </div>
 
     <!-- Hero Section -->
-    <div class="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32">
-        <img src="/assets/hero-section-showcase.png"
-            class="w-full rounded-[15px] max-w-4xl mt-16"
-            alt="hero section"
-        />
-    </div>
-    <div id="mision" class="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32">
-        <img src="/assets/mision_vision.png"
-             class="w-full rounded-[15px] max-w-4xl mt-16"
-             alt="hero section mision/vision"
-        />
-    </div>
-    <div id="soluciones" class="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32">
-        <img src="/assets/soluciones.png"
-             class="w-full rounded-[15px] max-w-4xl mt-16"
-             alt="hero section soluciones"
-        />
-    </div>
+    <section id="hero" class="mx-4 md:mx-16 lg:mx-24 xl:mx-32">
+        <div id="inicio" class="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32">
+            <img src="/assets/hero-section-showcase.png"
+                class="w-full rounded-[15px] max-w-4xl mt-16"
+                alt="hero section"
+            />
+        </div>
+        <div id="mision" class="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32">
+            <img src="/assets/mision_vision.png"
+                class="w-full rounded-[15px] max-w-4xl mt-16"
+                alt="hero section mision/vision"
+            />
+        </div>
+        <div id="soluciones" class="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32">
+            <img src="/assets/soluciones.png"
+                class="w-full rounded-[15px] max-w-4xl mt-16"
+                alt="hero section soluciones"
+            />
+        </div>
+    </section>
 
     <!-- Contact Us Section -->
-    <section id="contact" class="bg-white text-black mx-4 md:mx-16 lg:mx-24 xl:mx-32">
+    <section id="contact" class="mx-4 md:mx-16 lg:mx-24 xl:mx-32">
         <p class="text-center text-white font-medium text-white-600 mt-28 px-10 py-2 rounded-full bg-pink-600 border border-pink-800 w-max mx-auto">Contact</p>
         <h3 class="text-3xl font-semibold text-center mx-auto mt-4">Reach out to us</h3>
         <p class="text-gray-600 text-center mt-2 max-w-xl mx-auto">Ready to grow your brand? Let’s connect and build something exceptional together.</p>
@@ -118,7 +120,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white text-black flex flex-wrap justify-center md:justify-between overflow-hidden gap-10 md:gap-20 mt-40 py-6 px-6 md:mx-16 lg:px-24 xl:mx-32 text-[13px] text-gray-500">
+    <footer class="flex flex-wrap justify-center md:justify-between overflow-hidden gap-10 md:gap-20 mt-40 py-6 px-6 md:mx-16 lg:px-24 xl:mx-32 text-[13px] text-gray-500">
         <div class="flex flex-wrap items-start gap-10 md:gap-35">
             <a href="https://prebuiltui.com?utm_source=pixels">
                 <img class="size-8 aspect-square" alt="footer logo" src="/assets/footer-logo.svg">
